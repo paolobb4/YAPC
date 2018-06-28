@@ -2,7 +2,7 @@ extends Area2D
 
 
 var direction = Vector2(-1, 0).normalized()
-var speed = 100
+export (int) var speed = 100
 var screensize
 
 

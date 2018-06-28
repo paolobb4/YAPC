@@ -7,7 +7,8 @@
 
 [node name="Ball" parent="." index="0" instance=ExtResource( 1 )]
 
-position = Vector2( 137.71, 113.76 )
+position = Vector2( 159.863, 115.556 )
+speed = 180
 
 [node name="Player" parent="." index="1" instance=ExtResource( 2 )]
 

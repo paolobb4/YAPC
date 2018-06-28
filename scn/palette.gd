@@ -4,13 +4,14 @@ export (bool) var AI = false
 export (int) var speed = 150
 
 var screensize
-var tp = 0	# time passed
+var wait_time = 0	# used to create ai's handicap
 var direction = 0
 
 
 func _ready():
 	#TODO: change sprite if ai?
 	screensize = get_viewport_rect().size
+	randomize()
 
 
 func _process(delta):
@@ -34,19 +35,18 @@ func player_process(delta):
 
 
 func ai_process(delta):
-	#TODO: implement ai
 	var ball = get_owner().get_node("Ball")
-	if ball.position.x > screensize.x / 2:
-		tp += delta
-		if tp > 1:
-			tp -= 1
-
-		if tp >= .1:
-			if ball.position.y > position.y:
+	if (ball.position.x > screensize.x / 3) and ball.direction.x > 0:
+		if wait_time <= -1 and randf() < .15:
+			wait_time = .3
+		if wait_time <= 0:
+			if ball.position.y > position.y + 8:
 				direction = +1
-			elif ball.position.y < position.y:
+			elif ball.position.y < position.y - 8:
 				direction = -1
+			else:
+				direction = 0
+
+		wait_time -= delta
 
 		position.y += direction * speed * delta
-	else:
-		tp = .1
