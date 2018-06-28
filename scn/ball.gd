@@ -1,7 +1,7 @@
 extends Area2D
 
 
-var direction = Vector2(-1,1).normalized()
+var direction = Vector2(-1, 0).normalized()
 var speed = 100
 var screensize
 
@@ -22,4 +22,9 @@ func _process(delta):
 
 
 func _on_Ball_body_entered(body):
-	direction.x *= -1
+	var abs_angle = (body.position.y - self.position.y) / 16	# diff(y1, y2) / (lenght/2) = angle; -1 <= angle <= 1
+	var bounce_angle = abs_angle * deg2rad(75)	# limit bouncing angle to 75°
+
+	var side = 1 if body.position.x < screensize.x/2 else -1
+
+	direction = Vector2(side*cos(bounce_angle), -sin(bounce_angle))	# Linear Algebra, yoh!
