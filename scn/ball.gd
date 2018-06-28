@@ -13,9 +13,13 @@ func _ready():
 func _process(delta):
 	position += direction * speed * delta
 	# TODO: replace x collision with point score
-	if position.x < 0 or position.x > screensize.x:
-		direction.x *= -1
-		position.x = clamp(position.x, 0, screensize.x)
+	if position.x < 0:
+		position = screensize / 2
+		direction = Vector2(1, 0)
+	if position.x > screensize.x:
+		position = screensize / 2
+		direction = Vector2(-1, 0)
+
 	if position.y < 0 or position.y > screensize.y:
 		direction.y *= -1
 		position.y = clamp(position.y, 0, screensize.y)
