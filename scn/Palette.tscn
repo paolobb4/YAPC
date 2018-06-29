@@ -8,15 +8,19 @@
 custom_solver_bias = 0.0
 extents = Vector2( 4, 16 )
 
-[node name="Palette" type="KinematicBody2D"]
+[node name="Palette" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-AI = false
 speed = 150
+ai = false
+ai_sight = 3
+ai_miss_chance = 15
+ai_hold = 0.3
+ai_recover = 1
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 

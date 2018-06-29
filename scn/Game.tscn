@@ -3,7 +3,7 @@
 [ext_resource path="res://scn/Ball.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scn/Palette.tscn" type="PackedScene" id=2]
 
-[node name="Game" type="Node" index="0"]
+[node name="Game" type="Node"]
 
 [node name="Ball" parent="." index="0" instance=ExtResource( 1 )]
 
@@ -13,11 +13,20 @@ speed = 180
 [node name="Player" parent="." index="1" instance=ExtResource( 2 )]
 
 position = Vector2( 31.7331, 114.359 )
+ai = false
+ai_sight = 3
+ai_miss_chance = 15
+ai_hold = 0.3
+ai_recover = 1
 
 [node name="AI" parent="." index="2" instance=ExtResource( 2 )]
 
 position = Vector2( 287.993, 117.353 )
 _sections_unfolded = [ "Transform" ]
-AI = true
+ai = true
+ai_sight = 3
+ai_miss_chance = 15
+ai_hold = 0.3
+ai_recover = 1
 
 

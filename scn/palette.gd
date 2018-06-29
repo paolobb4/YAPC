@@ -1,7 +1,11 @@
 extends KinematicBody2D
 
-export (bool) var AI = false
-export (int) var speed = 150
+export (int)		var speed = 150
+export (bool)		var ai = false
+export (int)		var ai_sight = 3
+export (int, 1, 100)	var ai_miss_chance = 15
+export (float)		var ai_hold = .3
+export (float)		var ai_recover = 1
 
 var screensize
 var wait_time = 0	# used to create ai's handicap
@@ -15,7 +19,7 @@ func _ready():
 
 
 func _process(delta):
-	if AI:
+	if ai:
 		ai_process(delta)
 	else:
 		player_process(delta)
@@ -36,9 +40,9 @@ func player_process(delta):
 
 func ai_process(delta):
 	var ball = get_owner().get_node("Ball")
-	if (ball.position.x > screensize.x / 3) and ball.direction.x > 0:
-		if wait_time <= -1 and randf() < .15:
-			wait_time = .3
+	if (ball.position.x > screensize.x / ai_sight) and ball.direction.x > 0:
+		if wait_time <= -ai_recover and randf() < (ai_miss_chance / 100):
+			wait_time = ai_hold
 		if wait_time <= 0:
 			if ball.position.y > position.y + 8:
 				direction = +1

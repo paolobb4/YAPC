@@ -12,7 +12,6 @@ func _ready():
 
 func _process(delta):
 	position += direction * speed * delta
-	# TODO: replace x collision with point score
 	if position.x < 0:
 		position = screensize / 2
 		direction = Vector2(1, 0)
