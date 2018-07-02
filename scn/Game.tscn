@@ -3,7 +3,7 @@
 [ext_resource path="res://scn/Ball.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scn/Palette.tscn" type="PackedScene" id=2]
 
-[node name="Game" type="Node" index="0"]
+[node name="Game" type="Node"]
 
 [node name="Ball" parent="." index="0" instance=ExtResource( 1 )]
 

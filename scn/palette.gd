@@ -16,6 +16,8 @@ func _ready():
 	#TODO: change sprite if ai?
 	screensize = get_viewport_rect().size
 	randomize()
+	if self.position.x > screensize.x / 2:
+		$Sprite.region_rect.position.x = 8
 
 
 func _process(delta):

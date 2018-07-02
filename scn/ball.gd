@@ -14,10 +14,10 @@ func _process(delta):
 	position += direction * speed * delta
 	if position.x < 0:
 		position = screensize / 2
-		direction = Vector2(-1, 0)
+		direction = Vector2(1, 0)
 	if position.x > screensize.x:
 		position = screensize / 2
-		direction = Vector2(1, 0)
+		direction = Vector2(-1, 0)
 
 	if position.y < 0 or position.y > screensize.y:
 		direction.y *= -1
