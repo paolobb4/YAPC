@@ -1,6 +1,8 @@
 extends Area2D
 
 
+signal point_scored(side)
+
 var direction = Vector2(-1, 0).normalized()
 export (int) var speed = 100
 var screensize
@@ -15,9 +17,11 @@ func _process(delta):
 	if position.x < 0:
 		position = screensize / 2
 		direction = Vector2(1, 0)
+		emit_signal("point_scored", "right")
 	if position.x > screensize.x:
 		position = screensize / 2
 		direction = Vector2(-1, 0)
+		emit_signal("point_scored", "left")
 
 	if position.y < 0 or position.y > screensize.y:
 		direction.y *= -1

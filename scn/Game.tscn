@@ -1,23 +1,87 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://scn/Ball.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scn/Palette.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scn/game.gd" type="Script" id=1]
+[ext_resource path="res://scn/Ball.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scn/Palette.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/DejaVuSansMono-Bold.ttf" type="DynamicFontData" id=4]
 
-[node name="Game" type="Node"]
+[sub_resource type="DynamicFont" id=1]
 
-[node name="Ball" parent="." index="0" instance=ExtResource( 1 )]
+size = 40
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 4 )
+_sections_unfolded = [ "Font", "Font/fallback" ]
+
+[node name="Game" type="Node" index="0"]
+
+script = ExtResource( 1 )
+
+[node name="Ball" parent="." index="0" instance=ExtResource( 2 )]
 
 position = Vector2( 159.863, 115.556 )
 speed = 180
 
-[node name="Player" parent="." index="1" instance=ExtResource( 2 )]
+[node name="Player" parent="." index="1" instance=ExtResource( 3 )]
 
 position = Vector2( 31.7331, 114.359 )
 
-[node name="AI" parent="." index="2" instance=ExtResource( 2 )]
+[node name="AI" parent="." index="2" instance=ExtResource( 3 )]
 
 position = Vector2( 287.993, 117.353 )
 _sections_unfolded = [ "Transform" ]
 ai = true
+
+[node name="score_left" type="Label" parent="." index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 43.0
+margin_top = -17.0
+margin_right = 103.0
+margin_bottom = 84.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+text = "0"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="score_right" type="Label" parent="." index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 203.0
+margin_top = -12.0
+margin_right = 263.0
+margin_bottom = 89.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+text = "0"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[connection signal="point_scored" from="Ball" to="." method="_on_point_scored"]
 
 
