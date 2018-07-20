@@ -19,9 +19,10 @@ func _on_point_scored(side):
 
 func pause():
 	emit_signal('paused')
+	get_tree().paused = true
 
 func unpause():
-	pass
+	get_tree().paused = false
 
 func set(p1, p2):
 	pass

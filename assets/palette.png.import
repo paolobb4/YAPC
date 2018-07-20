@@ -7,10 +7,7 @@ path="res://.import/palette.png-902406b8bc4c8c9c3cd0a13ed068ac9d.stex"
 [deps]
 
 source_file="res://assets/palette.png"
-source_md5="14189a218d4810df12106f934b3e1d46"
-
 dest_files=[ "res://.import/palette.png-902406b8bc4c8c9c3cd0a13ed068ac9d.stex" ]
-dest_md5="2209a653776a62bf83aa149c4de5f6b9"
 
 [params]
 
