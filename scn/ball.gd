@@ -3,7 +3,7 @@ extends Area2D
 
 signal point_scored(side)
 
-var direction = Vector2(-1, 0).normalized()
+var direction = Vector2(-1, 0)
 export (int) var speed = 100
 var screensize
 

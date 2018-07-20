@@ -1,86 +1,88 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scn/game.gd" type="Script" id=1]
-[ext_resource path="res://scn/Ball.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scn/Palette.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/DejaVuSansMono-Bold.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/8-BIT WONDER.TTF" type="DynamicFontData" id=2]
+[ext_resource path="res://scn/Ball.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scn/Palette.tscn" type="PackedScene" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 
-size = 40
+size = 36
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 4 )
-_sections_unfolded = [ "Font", "Font/fallback" ]
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Font", "Font/fallback", "Settings" ]
 
 [node name="Game" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
-[node name="Ball" parent="." index="0" instance=ExtResource( 2 )]
+[node name="score_left" type="Label" parent="." index="0"]
 
-position = Vector2( 159.863, 115.556 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 80.0
+margin_top = 10.0
+margin_right = 116.0
+margin_bottom = 53.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+text = "0"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="score_right" type="Label" parent="." index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 214.0
+margin_top = 10.0
+margin_right = 250.0
+margin_bottom = 53.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+text = "0"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="Ball" parent="." index="2" instance=ExtResource( 3 )]
+
+position = Vector2( 160, 90 )
+_sections_unfolded = [ "Transform" ]
 speed = 180
 
-[node name="Player" parent="." index="1" instance=ExtResource( 3 )]
+[node name="Player" parent="." index="3" instance=ExtResource( 4 )]
 
-position = Vector2( 31.7331, 114.359 )
+position = Vector2( 30, 90 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="AI" parent="." index="2" instance=ExtResource( 3 )]
+[node name="AI" parent="." index="4" instance=ExtResource( 4 )]
 
-position = Vector2( 287.993, 117.353 )
+position = Vector2( 290, 90 )
 _sections_unfolded = [ "Transform" ]
 ai = true
-
-[node name="score_left" type="Label" parent="." index="3"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 43.0
-margin_top = -17.0
-margin_right = 103.0
-margin_bottom = 84.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = SubResource( 1 )
-text = "0"
-align = 1
-valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_fonts" ]
-
-[node name="score_right" type="Label" parent="." index="4"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 203.0
-margin_top = -12.0
-margin_right = 263.0
-margin_bottom = 89.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = SubResource( 1 )
-text = "0"
-align = 1
-valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [connection signal="point_scored" from="Ball" to="." method="_on_point_scored"]
 
