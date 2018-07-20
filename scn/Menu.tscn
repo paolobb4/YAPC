@@ -1,6 +1,26 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/8-BIT WONDER.TTF" type="DynamicFontData" id=1]
+[ext_resource path="res://scn/Game.tscn" type="PackedScene" id=2]
+
+[sub_resource type="Animation" id=12]
+
+resource_name = "game2play"
+length = 0.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -640, 0 ), Vector2( -320, 0 ) ]
+}
 
 [sub_resource type="Animation" id=1]
 
@@ -18,7 +38,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -180 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 320, 0 ) ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -56,7 +76,38 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, -180 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( 320, 0 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+
+resource_name = "play2game"
+length = 0.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -320, 0 ), Vector2( -640, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pause Panel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -122,13 +173,13 @@ use_filter = false
 font_data = ExtResource( 1 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="StyleBoxFlat" id=8]
+[sub_resource type="StyleBoxFlat" id=10]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
 content_margin_top = -1.0
 content_margin_bottom = -1.0
-bg_color = Color( 0.953125, 0.528687, 0.82712, 1 )
+bg_color = Color( 0.461578, 0.945312, 0.77525, 1 )
 draw_center = true
 border_width_left = 0
 border_width_top = 0
@@ -158,13 +209,41 @@ use_filter = false
 font_data = ExtResource( 1 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="StyleBoxFlat" id=10]
+[sub_resource type="StyleBoxFlat" id=8]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
 content_margin_top = -1.0
 content_margin_bottom = -1.0
-bg_color = Color( 0.461578, 0.945312, 0.77525, 1 )
+bg_color = Color( 0.953125, 0.528687, 0.82712, 1 )
+draw_center = true
+border_width_left = 0
+border_width_top = 0
+border_width_right = 0
+border_width_bottom = 0
+border_color = Color( 0.8, 0.8, 0.8, 1 )
+border_blend = false
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 0
+corner_detail = 8
+expand_margin_left = 0.0
+expand_margin_right = 0.0
+expand_margin_top = 0.0
+expand_margin_bottom = 0.0
+shadow_color = Color( 0, 0, 0, 0.6 )
+shadow_size = 0
+anti_aliasing = true
+anti_aliasing_size = 1
+
+[sub_resource type="StyleBoxFlat" id=11]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+bg_color = Color( 0.769485, 0.605377, 0.933594, 1 )
 draw_center = true
 border_width_left = 0
 border_width_top = 0
@@ -197,14 +276,17 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
+anims/game2play = SubResource( 12 )
 anims/main2opts = SubResource( 1 )
 anims/main2play = SubResource( 2 )
 anims/opts2main = SubResource( 3 )
+anims/play2game = SubResource( 13 )
 anims/play2main = SubResource( 4 )
 blend_times = [  ]
 
 [node name="Main menu" type="Panel" parent="." index="1"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -219,6 +301,9 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_styles/panel = SubResource( 5 )
 _sections_unfolded = [ "Rect", "custom_styles" ]
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Game Title" type="Label" parent="Main menu" index="0"]
 
@@ -243,7 +328,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="play Button" type="Button" parent="Main menu" index="1"]
+[node name="play menu Button" type="Button" parent="Main menu" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -270,7 +355,7 @@ flat = true
 align = 1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="options Button" type="Button" parent="Main menu" index="2"]
+[node name="options menu Button" type="Button" parent="Main menu" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -324,14 +409,14 @@ flat = true
 align = 1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="Play Game" type="Panel" parent="." index="2"]
+[node name="Options menu" type="Panel" parent="." index="2"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 320.0
-margin_right = 640.0
+margin_left = -320.0
 margin_bottom = 180.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -339,76 +424,11 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/panel = SubResource( 8 )
-_sections_unfolded = [ "custom_styles" ]
-
-[node name="Title" type="Label" parent="Play Game" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 25.0
-margin_right = 320.0
-margin_bottom = 52.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = SubResource( 9 )
-text = "Play Game"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_fonts" ]
-
-[node name="back Button" type="Button" parent="Play Game" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 108.0
-margin_top = 130.0
-margin_right = 204.0
-margin_bottom = 150.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-custom_fonts/font = SubResource( 7 )
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-text = "back"
-flat = true
-align = 1
-_sections_unfolded = [ "Rect", "custom_fonts" ]
-
-[node name="Options menu" type="Panel" parent="." index="3"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 180.0
-margin_right = 320.0
-margin_bottom = 360.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 custom_styles/panel = SubResource( 10 )
-_sections_unfolded = [ "custom_styles" ]
+_sections_unfolded = [ "Rect", "custom_styles" ]
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Title" type="Label" parent="Options menu" index="0"]
 
@@ -460,12 +480,226 @@ flat = true
 align = 1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[connection signal="pressed" from="Main menu/play Button" to="AnimationPlayer" method="play" binds= [ "main2play" ]]
+[node name="Play Game" type="Panel" parent="." index="3"]
 
-[connection signal="pressed" from="Main menu/options Button" to="AnimationPlayer" method="play" binds= [ "main2opts" ]]
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 320.0
+margin_right = 640.0
+margin_bottom = 180.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/panel = SubResource( 8 )
+_sections_unfolded = [ "custom_styles" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Title" type="Label" parent="Play Game" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 25.0
+margin_right = 320.0
+margin_bottom = 52.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 9 )
+text = "Play Game"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="back Button" type="Button" parent="Play Game" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 31.0
+margin_top = 139.0
+margin_right = 91.0
+margin_bottom = 159.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 7 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "back"
+flat = true
+align = 1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="play Button" type="Button" parent="Play Game" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 229.0
+margin_top = 142.0
+margin_right = 289.0
+margin_bottom = 162.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 7 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "play"
+flat = true
+align = 1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Game" parent="." index="4" instance=ExtResource( 2 )]
+
+position = Vector2( 640.663, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Pause Panel" type="Panel" parent="." index="5"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 725.0
+margin_top = 57.0
+margin_right = 875.0
+margin_bottom = 117.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/panel = SubResource( 11 )
+_sections_unfolded = [ "Visibility" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="Pause Panel" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 43.0
+margin_top = 6.0
+margin_right = 103.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 7 )
+text = "pause"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="quit Button" type="Button" parent="Pause Panel" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 9.0
+margin_top = 32.0
+margin_right = 63.0
+margin_bottom = 52.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 7 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "quit"
+flat = true
+align = 1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="back Button" type="Button" parent="Pause Panel" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 85.0
+margin_top = 32.0
+margin_right = 145.0
+margin_bottom = 52.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 7 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "back"
+flat = true
+align = 1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[connection signal="pressed" from="Main menu/play menu Button" to="AnimationPlayer" method="play" binds= [ "main2play" ]]
+
+[connection signal="pressed" from="Main menu/options menu Button" to="AnimationPlayer" method="play" binds= [ "main2opts" ]]
+
+[connection signal="pressed" from="Options menu/back Button" to="AnimationPlayer" method="play" binds= [ "opts2main" ]]
 
 [connection signal="pressed" from="Play Game/back Button" to="AnimationPlayer" method="play" binds= [ "play2main" ]]
 
-[connection signal="pressed" from="Options menu/back Button" to="AnimationPlayer" method="play" binds= [ "opts2main" ]]
+[connection signal="pressed" from="Play Game/play Button" to="AnimationPlayer" method="play" binds= [ "play2game" ]]
+
+[connection signal="paused" from="Game" to="Pause Panel" method="show"]
+
+[connection signal="pressed" from="Pause Panel/quit Button" to="AnimationPlayer" method="play" binds= [ "game2play" ]]
+
+[connection signal="pressed" from="Pause Panel/back Button" to="Game" method="unpause"]
+
+[connection signal="pressed" from="Pause Panel/back Button" to="Pause Panel" method="hide"]
 
 

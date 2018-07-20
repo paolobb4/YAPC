@@ -1,9 +1,37 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scn/game.gd" type="Script" id=1]
 [ext_resource path="res://assets/8-BIT WONDER.TTF" type="DynamicFontData" id=2]
 [ext_resource path="res://scn/Ball.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scn/Palette.tscn" type="PackedScene" id=4]
+
+[sub_resource type="StyleBoxFlat" id=2]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+bg_color = Color( 0.760361, 0.914062, 0.57486, 1 )
+draw_center = true
+border_width_left = 0
+border_width_top = 0
+border_width_right = 0
+border_width_bottom = 0
+border_color = Color( 0.8, 0.8, 0.8, 1 )
+border_blend = false
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 0
+corner_detail = 8
+expand_margin_left = 0.0
+expand_margin_right = 0.0
+expand_margin_top = 0.0
+expand_margin_bottom = 0.0
+shadow_color = Color( 0, 0, 0, 0.6 )
+shadow_size = 0
+anti_aliasing = true
+anti_aliasing_size = 1
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -13,11 +41,31 @@ use_filter = false
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Font/fallback", "Settings" ]
 
-[node name="Game" type="Node"]
+[node name="Game" type="Node2D"]
 
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="score_left" type="Label" parent="." index="0"]
+[node name="Panel" type="Panel" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 320.0
+margin_bottom = 180.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/panel = SubResource( 2 )
+_sections_unfolded = [ "custom_styles" ]
+
+[node name="score_left" type="Label" parent="." index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -42,7 +90,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="score_right" type="Label" parent="." index="1"]
+[node name="score_right" type="Label" parent="." index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -67,18 +115,18 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="Ball" parent="." index="2" instance=ExtResource( 3 )]
+[node name="Ball" parent="." index="3" instance=ExtResource( 3 )]
 
 position = Vector2( 160, 90 )
 _sections_unfolded = [ "Transform" ]
 speed = 180
 
-[node name="Player" parent="." index="3" instance=ExtResource( 4 )]
+[node name="Player" parent="." index="4" instance=ExtResource( 4 )]
 
 position = Vector2( 30, 90 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="AI" parent="." index="4" instance=ExtResource( 4 )]
+[node name="AI" parent="." index="5" instance=ExtResource( 4 )]
 
 position = Vector2( 290, 90 )
 _sections_unfolded = [ "Transform" ]
