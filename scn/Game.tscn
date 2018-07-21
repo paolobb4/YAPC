@@ -125,7 +125,6 @@ speed = 180
 
 position = Vector2( 30, 91 )
 _sections_unfolded = [ "Transform" ]
-ai = true
 
 [node name="Player_2" parent="." index="5" instance=ExtResource( 4 )]
 
