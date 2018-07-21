@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://assets/8-BIT WONDER.TTF" type="DynamicFontData" id=1]
-[ext_resource path="res://scn/Game.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scn/menu.gd" type="Script" id=1]
+[ext_resource path="res://assets/8-BIT WONDER.TTF" type="DynamicFontData" id=2]
+[ext_resource path="res://scn/Game.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Animation" id=1]
 
@@ -172,7 +173,7 @@ anti_aliasing_size = 1
 size = 36
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 1 )
+font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=9]
@@ -180,7 +181,7 @@ _sections_unfolded = [ "Font", "Settings" ]
 size = 12
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 1 )
+font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="StyleBoxFlat" id=10]
@@ -216,7 +217,7 @@ anti_aliasing_size = 1
 size = 24
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 1 )
+font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="StyleBoxFlat" id=12]
@@ -277,6 +278,7 @@ anti_aliasing_size = 1
 
 [node name="Menu" type="Node2D" index="0"]
 
+script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
@@ -299,7 +301,6 @@ _sections_unfolded = [ "Pause" ]
 [node name="Main menu" type="Panel" parent="." index="1"]
 
 pause_mode = 2
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -497,6 +498,7 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 [node name="Play Game" type="Panel" parent="." index="3"]
 
 pause_mode = 2
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -593,7 +595,7 @@ flat = true
 align = 1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="Game" parent="." index="4" instance=ExtResource( 2 )]
+[node name="Game" parent="." index="4" instance=ExtResource( 3 )]
 
 position = Vector2( 640.663, 0 )
 _sections_unfolded = [ "Pause", "Transform" ]
@@ -601,6 +603,7 @@ _sections_unfolded = [ "Pause", "Transform" ]
 [node name="Pause Panel" type="Panel" parent="." index="5"]
 
 pause_mode = 2
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -693,7 +696,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "back"
+text = "play"
 flat = true
 align = 1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
@@ -701,6 +704,8 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 [connection signal="pressed" from="Main menu/play menu Button" to="AnimationPlayer" method="play" binds= [ "main2play" ]]
 
 [connection signal="pressed" from="Main menu/options menu Button" to="AnimationPlayer" method="play" binds= [ "main2opts" ]]
+
+[connection signal="pressed" from="Main menu/quit Button" to="." method="_on_quit_Button_pressed"]
 
 [connection signal="pressed" from="Options menu/back Button" to="AnimationPlayer" method="play" binds= [ "opts2main" ]]
 
