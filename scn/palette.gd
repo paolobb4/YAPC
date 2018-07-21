@@ -32,17 +32,37 @@ func _process(delta):
 
 func player_process(delta):
 	direction = 0
-	if Input.is_action_pressed("ui_up"):
-		direction -= 1
-	if Input.is_action_pressed("ui_down"):
-		direction += 1
+	# player 1
+	if position.x < screensize.x / 2:
+		if Input.is_action_pressed("p1_up"):
+			direction -= 1
+		if Input.is_action_pressed("p1_down"):
+			direction += 1
+	# player 2
+	else:
+		if Input.is_action_pressed("p2_up"):
+			direction -= 1
+		if Input.is_action_pressed("p2_down"):
+			direction += 1
 
 	position.y += direction * speed * delta
 
 
 func ai_process(delta):
 	var ball = get_owner().get_node("Ball")
-	if (ball.position.x > screensize.x / ai_sight) and ball.direction.x > 0:
+	var ball_within_sight
+	var ball_comming
+
+	# player 1
+	if position.x < screensize.x / 2:
+		ball_within_sight = ball.position.x < screensize.x - (screensize.x / ai_sight)
+		ball_comming = ball.direction.x < 0
+	# player 2
+	else:
+		ball_within_sight = ball.position.x > screensize.x / ai_sight
+		ball_comming = ball.direction.x > 0
+
+	if ball_within_sight and ball_comming:
 		if wait_time <= -ai_recover and randf() < (ai_miss_chance / 100):
 			wait_time = ai_hold
 		if wait_time <= 0:
