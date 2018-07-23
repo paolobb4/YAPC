@@ -251,7 +251,7 @@ shadow_size = 0
 anti_aliasing = true
 anti_aliasing_size = 1
 
-[sub_resource type="StyleBoxFlat" id=14]
+[sub_resource type="StyleBoxFlat" id=13]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
@@ -279,7 +279,7 @@ shadow_size = 0
 anti_aliasing = true
 anti_aliasing_size = 1
 
-[sub_resource type="StyleBoxFlat" id=13]
+[sub_resource type="StyleBoxFlat" id=14]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
@@ -589,7 +589,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/panel = SubResource( 14 )
+custom_styles/panel = SubResource( 13 )
 _sections_unfolded = [ "Rect" ]
 __meta__ = {
 "_edit_group_": true
@@ -690,7 +690,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/panel = SubResource( 14 )
+custom_styles/panel = SubResource( 13 )
 _sections_unfolded = [ "Rect" ]
 __meta__ = {
 "_edit_group_": true
@@ -852,7 +852,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/panel = SubResource( 13 )
+custom_styles/panel = SubResource( 14 )
 _sections_unfolded = [ "Pause", "Visibility" ]
 __meta__ = {
 "_edit_group_": true
@@ -943,17 +943,17 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [connection signal="pressed" from="Options menu/back Button" to="AnimationPlayer" method="play" binds= [ "opts2main" ]]
 
-[connection signal="pressed" from="Play Game/p1 Panel/human" to="Play Game/p1 Panel/ai" method="set_flat" binds= [ true ]]
-
 [connection signal="pressed" from="Play Game/p1 Panel/human" to="Game" method="set_p1_ai" binds= [ false ]]
 
 [connection signal="pressed" from="Play Game/p1 Panel/human" to="Play Game/p1 Panel/human" method="set_flat" binds= [ false ]]
 
-[connection signal="pressed" from="Play Game/p1 Panel/ai" to="Play Game/p1 Panel/ai" method="set_flat" binds= [ false ]]
+[connection signal="pressed" from="Play Game/p1 Panel/human" to="Play Game/p1 Panel/ai" method="set_flat" binds= [ true ]]
 
 [connection signal="pressed" from="Play Game/p1 Panel/ai" to="Game" method="set_p1_ai" binds= [ true ]]
 
 [connection signal="pressed" from="Play Game/p1 Panel/ai" to="Play Game/p1 Panel/human" method="set_flat" binds= [ true ]]
+
+[connection signal="pressed" from="Play Game/p1 Panel/ai" to="Play Game/p1 Panel/ai" method="set_flat" binds= [ false ]]
 
 [connection signal="pressed" from="Play Game/p2 Panel/human" to="Game" method="set_p2_ai" binds= [ false ]]
 

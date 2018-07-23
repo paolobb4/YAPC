@@ -35,3 +35,6 @@ func reset():
 	$Ball.direction = Vector2(-1, 0)
 	$Player_1.position.y = 91
 	$Player_2.position.y = 90
+
+	$score_left.text = '0'
+	$score_right.text = '0'
