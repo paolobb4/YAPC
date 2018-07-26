@@ -18,14 +18,18 @@ func _process(delta):
 		position = screensize / 2
 		direction = Vector2(1, 0)
 		emit_signal("point_scored", "right")
+		$Audio/score.play()
+
 	if position.x > screensize.x:
 		position = screensize / 2
 		direction = Vector2(-1, 0)
 		emit_signal("point_scored", "left")
+		$Audio/score.play()
 
 	if position.y < 0 or position.y > screensize.y:
 		direction.y *= -1
 		position.y = clamp(position.y, 0, screensize.y)
+		$Audio/bounce.play()
 
 
 func _on_Ball_body_entered(body):
@@ -36,3 +40,5 @@ func _on_Ball_body_entered(body):
 	var side = 1 if body.position.x < screensize.x/2 else -1
 
 	direction = Vector2(side*cos(bounce_angle), -sin(bounce_angle))	# Linear Algebra, yoh!
+
+	$Audio/bounce.play()

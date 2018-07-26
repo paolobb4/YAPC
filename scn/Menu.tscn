@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scn/menu.gd" type="Script" id=1]
-[ext_resource path="res://assets/8-BIT WONDER.TTF" type="DynamicFontData" id=2]
-[ext_resource path="res://assets/keys_400px.png" type="Texture" id=3]
-[ext_resource path="res://scn/Game.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/sfx_menu_move1.wav" type="AudioStream" id=2]
+[ext_resource path="res://assets/8-BIT WONDER.TTF" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/keys_400px.png" type="Texture" id=4]
+[ext_resource path="res://scn/Game.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Animation" id=1]
 
@@ -121,7 +122,7 @@ tracks/2/keys = {
 "args": [  ],
 "method": "reset"
 }, {
-"args": [  ],
+"args": [ false ],
 "method": "unpause"
 } ]
 }
@@ -177,7 +178,7 @@ anti_aliasing_size = 1
 size = 36
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 2 )
+font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=9]
@@ -185,7 +186,7 @@ _sections_unfolded = [ "Font", "Settings" ]
 size = 12
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 2 )
+font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="StyleBoxFlat" id=10]
@@ -221,7 +222,7 @@ anti_aliasing_size = 1
 size = 24
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 2 )
+font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="StyleBoxFlat" id=12]
@@ -330,9 +331,21 @@ anims/play2main = SubResource( 6 )
 blend_times = [  ]
 _sections_unfolded = [ "Pause" ]
 
-[node name="Main menu" type="Panel" parent="." index="1"]
+[node name="Audio" type="Node" parent="." index="1"]
+
+[node name="menu_button" type="AudioStreamPlayer" parent="Audio" index="0"]
+
+stream = ExtResource( 2 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Main menu" type="Panel" parent="." index="2"]
 
 pause_mode = 2
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -455,10 +468,9 @@ flat = true
 align = 1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="Options menu" type="Panel" parent="." index="2"]
+[node name="Options menu" type="Panel" parent="." index="3"]
 
 pause_mode = 2
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -527,9 +539,112 @@ flat = true
 align = 1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="Play Game" type="Panel" parent="." index="3"]
+[node name="full_screen" type="CheckBox" parent="Options menu" index="2"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 162.0
+margin_top = 69.0
+margin_right = 186.0
+margin_bottom = 93.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = true
+pressed = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 0
+
+[node name="label" type="Label" parent="Options menu/full_screen" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -148.0
+margin_top = 4.0
+margin_right = -22.0
+margin_bottom = 18.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 9 )
+text = "full Screen"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="volume" type="HSlider" parent="Options menu" index="3"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 109.0
+margin_top = 97.0
+margin_right = 278.0
+margin_bottom = 113.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+min_value = -50.0
+max_value = 0.0
+step = 10.0
+page = 0.0
+value = 0.0
+exp_edit = false
+rounded = false
+editable = true
+tick_count = 0
+ticks_on_borders = false
+focus_mode = 2
+
+[node name="label" type="Label" parent="Options menu/volume" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -94.0
+margin_top = 1.0
+margin_right = -16.0
+margin_bottom = 15.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 9 )
+text = "volume"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Play Game" type="Panel" parent="." index="4"]
 
 pause_mode = 2
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -574,6 +689,7 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="p1 Panel" type="Panel" parent="Play Game" index="1"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -677,13 +793,14 @@ _sections_unfolded = [ "Rect" ]
 
 position = Vector2( -24.3771, -1.07019 )
 scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 200, 314 )
 _sections_unfolded = [ "Region", "Transform", "Z Index" ]
 
 [node name="p2 Panel" type="Panel" parent="Play Game" index="2"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -787,7 +904,7 @@ _sections_unfolded = [ "Rect" ]
 
 position = Vector2( 127.302, 16.6563 )
 scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( 200, 0, 200, 314 )
 _sections_unfolded = [ "Region", "Transform", "Z Index" ]
@@ -846,12 +963,12 @@ flat = true
 align = 1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="Game" parent="." index="4" instance=ExtResource( 4 )]
+[node name="Game" parent="." index="5" instance=ExtResource( 5 )]
 
 position = Vector2( 640.663, 0 )
 _sections_unfolded = [ "Pause", "Transform" ]
 
-[node name="Pause Panel" type="Panel" parent="." index="5"]
+[node name="Pause Panel" type="Panel" parent="." index="6"]
 
 pause_mode = 2
 editor/display_folded = true
@@ -952,13 +1069,27 @@ flat = true
 align = 1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
+[connection signal="pressed" from="Main menu/play menu Button" to="Audio/menu_button" method="play"]
+
 [connection signal="pressed" from="Main menu/play menu Button" to="AnimationPlayer" method="play" binds= [ "main2play" ]]
+
+[connection signal="pressed" from="Main menu/options menu Button" to="Audio/menu_button" method="play"]
 
 [connection signal="pressed" from="Main menu/options menu Button" to="AnimationPlayer" method="play" binds= [ "main2opts" ]]
 
+[connection signal="pressed" from="Main menu/quit Button" to="Audio/menu_button" method="play"]
+
 [connection signal="pressed" from="Main menu/quit Button" to="." method="_on_quit_Button_pressed"]
 
+[connection signal="pressed" from="Options menu/back Button" to="Audio/menu_button" method="play"]
+
 [connection signal="pressed" from="Options menu/back Button" to="AnimationPlayer" method="play" binds= [ "opts2main" ]]
+
+[connection signal="pressed" from="Options menu/full_screen" to="Audio/menu_button" method="play"]
+
+[connection signal="pressed" from="Options menu/full_screen" to="." method="_on_full_screen_pressed"]
+
+[connection signal="value_changed" from="Options menu/volume" to="." method="_on_volume_changed"]
 
 [connection signal="pressed" from="Play Game/p1 Panel/human" to="Game" method="set_p1_ai" binds= [ false ]]
 
@@ -984,16 +1115,22 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [connection signal="pressed" from="Play Game/p2 Panel/ai" to="Play Game/p2 Panel/ai" method="set_flat" binds= [ false ]]
 
+[connection signal="pressed" from="Play Game/back Button" to="Audio/menu_button" method="play"]
+
 [connection signal="pressed" from="Play Game/back Button" to="AnimationPlayer" method="play" binds= [ "play2main" ]]
+
+[connection signal="pressed" from="Play Game/play Button" to="Audio/menu_button" method="play"]
 
 [connection signal="pressed" from="Play Game/play Button" to="AnimationPlayer" method="play" binds= [ "play2game" ]]
 
 [connection signal="paused" from="Game" to="Pause Panel" method="show"]
 
+[connection signal="pressed" from="Pause Panel/quit Button" to="Audio/menu_button" method="play"]
+
 [connection signal="pressed" from="Pause Panel/quit Button" to="AnimationPlayer" method="play" binds= [ "game2play" ]]
 
-[connection signal="pressed" from="Pause Panel/back Button" to="Pause Panel" method="hide"]
-
 [connection signal="pressed" from="Pause Panel/back Button" to="Game" method="unpause"]
+
+[connection signal="pressed" from="Pause Panel/back Button" to="Pause Panel" method="hide"]
 
 
