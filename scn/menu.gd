@@ -15,4 +15,4 @@ func _on_volume_changed(db):
 	else:
 		AudioServer.set_bus_mute(0, false)
 		AudioServer.set_bus_volume_db(0, db)
-		$Audio/menu_button.play()
+		$'Audio/menu button'.play()
