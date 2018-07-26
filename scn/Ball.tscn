@@ -10,7 +10,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 4, 4 )
 
-[node name="Ball" type="Area2D" index="0"]
+[node name="Ball" type="Area2D"]
 
 input_pickable = false
 gravity_vec = Vector2( 0, 1 )

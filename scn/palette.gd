@@ -63,7 +63,7 @@ func ai_process(delta):
 		ball_comming = ball.direction.x > 0
 
 	if ball_within_sight and ball_comming:
-		if wait_time <= -ai_recover and randf() < (ai_miss_chance / 100):
+		if wait_time <= -ai_recover and randf() < (ai_miss_chance / 100) or wait_time < -5:
 			wait_time = ai_hold
 		if wait_time <= 0:
 			if ball.position.y > position.y + 8:

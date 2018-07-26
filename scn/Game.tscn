@@ -43,7 +43,7 @@ use_filter = false
 font_data = ExtResource( 4 )
 _sections_unfolded = [ "Font", "Font/fallback", "Settings" ]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 __meta__ = {
@@ -147,12 +147,16 @@ speed = 180
 
 position = Vector2( 30, 91 )
 _sections_unfolded = [ "Transform" ]
+ai_miss_chance = 40
+ai_hold = 0.35
 
 [node name="Player_2" parent="." index="6" instance=ExtResource( 6 )]
 
 position = Vector2( 290, 90 )
 _sections_unfolded = [ "Transform" ]
 ai = true
+ai_miss_chance = 30
+ai_hold = 0.4
 
 [connection signal="point_scored" from="Ball" to="." method="_on_point_scored"]
 
