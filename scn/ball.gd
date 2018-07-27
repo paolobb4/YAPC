@@ -35,6 +35,14 @@ func _process(delta):
 func _on_Ball_body_entered(body):
 	# diff(y1, y2) / [(len(palette)+len(ball)) / 2] = angle; -1 <= angle <= 1
 	var abs_angle = (body.position.y - self.position.y) / (16 + 4)
+	if abs(abs_angle) > 1:
+		return
+	#	print("angle: ", abs_angle)
+	#	print("body: ", body.position)
+	#	print("ball: ", self.position)
+	#	print()
+	#assert abs(abs_angle) < 1
+
 	var bounce_angle = abs_angle * deg2rad(75)	# limit bouncing angle to 75°
 
 	var side = 1 if body.position.x < screensize.x/2 else -1
