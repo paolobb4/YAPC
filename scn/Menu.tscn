@@ -22,7 +22,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -640, 0 ), Vector2( -320, 0 ) ]
+"values": [ Vector2( -768, 0 ), Vector2( -384, 0 ) ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -40,7 +40,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 320, 0 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 384, 0 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -58,7 +58,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( -320, 0 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( -384, 0 ) ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -76,7 +76,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 320, 0 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( 384, 0 ), Vector2( 0, 0 ) ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -95,7 +95,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -320, 0 ), Vector2( -640, 0 ) ]
+"values": [ Vector2( -384, 0 ), Vector2( -768, 0 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Pause Panel:visible")
@@ -142,7 +142,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -320, 0 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( -384, 0 ), Vector2( 0, 0 ) ]
 }
 
 [sub_resource type="StyleBoxFlat" id=7]
@@ -352,6 +352,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 320.0
 margin_bottom = 180.0
+rect_scale = Vector2( 1.2, 1.2 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -476,8 +477,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -320.0
+margin_left = -384.0
+margin_right = -64.0
 margin_bottom = 180.0
+rect_scale = Vector2( 1.2, 1.2 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -649,9 +652,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 320.0
-margin_right = 640.0
+margin_left = 384.0
+margin_right = 704.0
 margin_bottom = 180.0
+rect_scale = Vector2( 1.2, 1.2 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -659,7 +663,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_styles/panel = SubResource( 12 )
-_sections_unfolded = [ "Pause", "custom_styles" ]
+_sections_unfolded = [ "Pause", "Rect", "custom_styles" ]
 __meta__ = {
 "_edit_group_": true
 }
@@ -961,7 +965,7 @@ _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
 [node name="Game" parent="." index="5" instance=ExtResource( 5 )]
 
-position = Vector2( 640.663, 0 )
+position = Vector2( 768, 0 )
 _sections_unfolded = [ "Pause", "Transform" ]
 
 [node name="Pause Panel" type="Panel" parent="." index="6"]
@@ -972,10 +976,11 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 725.0
-margin_top = 57.0
-margin_right = 875.0
-margin_bottom = 117.0
+margin_left = 870.0
+margin_top = 68.4
+margin_right = 1020.0
+margin_bottom = 128.4
+rect_scale = Vector2( 1.2, 1.2 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0

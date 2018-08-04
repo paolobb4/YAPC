@@ -41,10 +41,10 @@ func set_p2_ai(ai):
 
 
 func reset():
-	$Ball.position = Vector2(160, 90)
+	$Ball.position = Vector2(192, 108)
 	$Ball.direction = Vector2(-1, 0)
-	$Player_1.position.y = 91
-	$Player_2.position.y = 90
+	$Player_1.position.y = 109
+	$Player_2.position.y = 108
 
 	$score_left.text = '0'
 	$score_right.text = '0'

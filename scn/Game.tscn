@@ -43,7 +43,7 @@ use_filter = false
 font_data = ExtResource( 4 )
 _sections_unfolded = [ "Font", "Font/fallback", "Settings" ]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 __meta__ = {
@@ -76,8 +76,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 320.0
-margin_bottom = 180.0
+margin_right = 384.0
+margin_bottom = 216.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -85,7 +85,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_styles/panel = SubResource( 1 )
-_sections_unfolded = [ "custom_styles" ]
+_sections_unfolded = [ "Rect", "custom_styles" ]
 
 [node name="score_left" type="Label" parent="." index="2"]
 
@@ -93,10 +93,11 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 80.0
-margin_top = 10.0
-margin_right = 116.0
-margin_bottom = 53.0
+margin_left = 96.0
+margin_top = 12.0
+margin_right = 132.0
+margin_bottom = 55.0
+rect_scale = Vector2( 1.2, 1.2 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -118,10 +119,11 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 214.0
-margin_top = 10.0
-margin_right = 250.0
-margin_bottom = 53.0
+margin_left = 248.8
+margin_top = 12.0
+margin_right = 284.8
+margin_bottom = 55.0
+rect_scale = Vector2( 1.2, 1.2 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -139,20 +141,20 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="Ball" parent="." index="4" instance=ExtResource( 5 )]
 
-position = Vector2( 160, 90 )
+position = Vector2( 192, 108 )
 _sections_unfolded = [ "Transform" ]
 speed = 180
 
 [node name="Player_1" parent="." index="5" instance=ExtResource( 6 )]
 
-position = Vector2( 30, 91 )
+position = Vector2( 43, 109 )
 _sections_unfolded = [ "Transform" ]
 ai_miss_chance = 40
 ai_hold = 0.35
 
 [node name="Player_2" parent="." index="6" instance=ExtResource( 6 )]
 
-position = Vector2( 290, 90 )
+position = Vector2( 332, 108 )
 _sections_unfolded = [ "Transform" ]
 ai = true
 ai_miss_chance = 30

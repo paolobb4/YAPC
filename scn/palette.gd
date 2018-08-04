@@ -11,13 +11,14 @@ var screensize
 var wait_time = 0	# used to create ai's handicap
 var direction = 0
 
+var size = Vector2(8, 32)
 
 func _ready():
 	#TODO: change sprite if ai?
 	screensize = get_viewport_rect().size
 	randomize()
 	if self.position.x > screensize.x / 2:
-		$Sprite.region_rect.position.x = 8
+		$Sprite.region_rect.position.x = size.x
 
 
 func _process(delta):
@@ -28,6 +29,11 @@ func _process(delta):
 
 	if position.y < 0 or position.y > screensize.y:
 		position.y = clamp(position.y, 0, screensize.y)
+
+	if position.y - size.y/2 < 0:
+		position.y = size.y/2
+	if position.y + size.y/2 > screensize.y:
+		position.y = screensize.y - size.y/2
 
 
 func player_process(delta):
@@ -66,9 +72,9 @@ func ai_process(delta):
 		if wait_time <= -ai_recover and randf() < (ai_miss_chance / 100) or wait_time < -5:
 			wait_time = ai_hold
 		if wait_time <= 0:
-			if ball.position.y > position.y + 8:
+			if ball.position.y > position.y + 4:
 				direction = +1
-			elif ball.position.y < position.y - 8:
+			elif ball.position.y < position.y - 4:
 				direction = -1
 			else:
 				direction = 0
