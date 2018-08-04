@@ -1,10 +1,13 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://scn/menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/sfx_menu_move1.wav" type="AudioStream" id=2]
 [ext_resource path="res://assets/8-BIT WONDER.TTF" type="DynamicFontData" id=3]
-[ext_resource path="res://assets/keys_400px.png" type="Texture" id=4]
-[ext_resource path="res://scn/Game.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/ui_checkbox_checked.png" type="Texture" id=4]
+[ext_resource path="res://assets/ui_checkbox_unchecked.png" type="Texture" id=5]
+[ext_resource path="res://assets/ui_grabber.png" type="Texture" id=6]
+[ext_resource path="res://assets/keys_400px.png" type="Texture" id=7]
+[ext_resource path="res://scn/Game.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Animation" id=1]
 
@@ -126,6 +129,32 @@ tracks/2/keys = {
 "method": "unpause"
 } ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("Pause Info Panel:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 938, -40 ) ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("AnimationPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "show_pause_info" ],
+"method": "play"
+} ]
+}
 
 [sub_resource type="Animation" id=6]
 
@@ -143,6 +172,25 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( -384, 0 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=18]
+
+resource_name = "show_pause_info"
+length = 7.6
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pause Info Panel:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 7.3, 7.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 938, -40 ), Vector2( 938, 0 ), Vector2( 938, 0 ), Vector2( 938, -40 ) ]
 }
 
 [sub_resource type="StyleBoxFlat" id=7]
@@ -225,6 +273,17 @@ use_filter = false
 font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
+[sub_resource type="StyleBoxLine" id=15]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+color = Color( 0, 0, 0, 1 )
+grow = 1.0
+thickness = 1
+vertical = false
+
 [sub_resource type="StyleBoxFlat" id=12]
 
 content_margin_left = -1.0
@@ -260,6 +319,62 @@ content_margin_right = -1.0
 content_margin_top = -1.0
 content_margin_bottom = -1.0
 bg_color = Color( 0, 0, 0, 0.10498 )
+draw_center = true
+border_width_left = 0
+border_width_top = 0
+border_width_right = 0
+border_width_bottom = 0
+border_color = Color( 0.8, 0.8, 0.8, 1 )
+border_blend = false
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 0
+corner_detail = 8
+expand_margin_left = 0.0
+expand_margin_right = 0.0
+expand_margin_top = 0.0
+expand_margin_bottom = 0.0
+shadow_color = Color( 0, 0, 0, 0.6 )
+shadow_size = 0
+anti_aliasing = true
+anti_aliasing_size = 1
+
+[sub_resource type="StyleBoxFlat" id=16]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+bg_color = Color( 0.297852, 0.350906, 0.476562, 1 )
+draw_center = true
+border_width_left = 0
+border_width_top = 0
+border_width_right = 0
+border_width_bottom = 0
+border_color = Color( 0.8, 0.8, 0.8, 1 )
+border_blend = false
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 0
+corner_detail = 8
+expand_margin_left = 0.0
+expand_margin_right = 0.0
+expand_margin_top = 0.0
+expand_margin_bottom = 0.0
+shadow_color = Color( 0, 0, 0, 0.6 )
+shadow_size = 0
+anti_aliasing = true
+anti_aliasing_size = 1
+
+[sub_resource type="StyleBoxFlat" id=17]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+bg_color = Color( 0.217896, 0.243754, 0.332031, 0.419882 )
 draw_center = true
 border_width_left = 0
 border_width_top = 0
@@ -328,6 +443,7 @@ anims/main2play = SubResource( 3 )
 anims/opts2main = SubResource( 4 )
 anims/play2game = SubResource( 5 )
 anims/play2main = SubResource( 6 )
+anims/show_pause_info = SubResource( 18 )
 blend_times = [  ]
 _sections_unfolded = [ "Pause" ]
 
@@ -472,7 +588,6 @@ _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 [node name="Options menu" type="Panel" parent="." index="3"]
 
 pause_mode = 2
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -488,7 +603,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_styles/panel = SubResource( 10 )
-_sections_unfolded = [ "Pause", "Rect", "custom_styles" ]
+_sections_unfolded = [ "Pause", "Rect" ]
 __meta__ = {
 "_edit_group_": true
 }
@@ -522,25 +637,26 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 163.0
-margin_top = 69.0
-margin_right = 187.0
-margin_bottom = 93.0
+margin_left = 170.0
+margin_top = 70.0
+margin_right = 194.0
+margin_bottom = 94.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+custom_icons/checked = ExtResource( 4 )
+custom_icons/unchecked = ExtResource( 5 )
 toggle_mode = true
 pressed = true
-enabled_focus_mode = 2
+enabled_focus_mode = 0
 shortcut = null
 group = null
 flat = false
 align = 0
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "custom_icons" ]
 
 [node name="fullscreen_label" type="Label" parent="Options menu" index="2"]
 
@@ -577,11 +693,14 @@ margin_right = 290.0
 margin_bottom = 114.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 0
+custom_icons/grabber_highlight = ExtResource( 6 )
+custom_icons/grabber = ExtResource( 6 )
+custom_styles/slider = SubResource( 15 )
+custom_styles/grabber_disabled = SubResource( 15 )
 min_value = -50.0
 max_value = 0.0
 step = 10.0
@@ -592,7 +711,8 @@ rounded = false
 editable = true
 tick_count = 0
 ticks_on_borders = false
-focus_mode = 2
+focus_mode = 0
+_sections_unfolded = [ "custom_icons" ]
 
 [node name="volume_label" type="Label" parent="Options menu" index="4"]
 
@@ -693,7 +813,6 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="p1 Panel" type="Panel" parent="Play Game" index="1"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -737,7 +856,26 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="human" type="Button" parent="Play Game/p1 Panel" index="1"]
+[node name="h_panel" type="Panel" parent="Play Game/p1 Panel" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 18.0
+margin_top = 5.0
+margin_right = 80.0
+margin_bottom = 21.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/panel = SubResource( 16 )
+_sections_unfolded = [ "Rect", "custom_styles" ]
+
+[node name="human" type="Button" parent="Play Game/p1 Panel" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -760,20 +898,40 @@ enabled_focus_mode = 0
 shortcut = null
 group = null
 text = "human"
-flat = false
+flat = true
 align = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="ai" type="Button" parent="Play Game/p1 Panel" index="2"]
+[node name="a_panel" type="Panel" parent="Play Game/p1 Panel" index="3"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 18.0
 margin_top = 30.0
+margin_right = 80.0
+margin_bottom = 46.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/panel = SubResource( 16 )
+_sections_unfolded = [ "Rect", "custom_styles" ]
+
+[node name="ai" type="Button" parent="Play Game/p1 Panel" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 18.0
+margin_top = 29.0
 margin_right = 96.0
-margin_bottom = 50.0
+margin_bottom = 49.0
 rect_scale = Vector2( 0.8, 0.8 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -791,18 +949,17 @@ flat = true
 align = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="Sprite" type="Sprite" parent="Play Game/p1 Panel" index="3"]
+[node name="Sprite" type="Sprite" parent="Play Game/p1 Panel" index="5"]
 
 position = Vector2( -24.3771, -1.07019 )
 scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 4 )
+texture = ExtResource( 7 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 200, 314 )
 _sections_unfolded = [ "Region", "Transform", "Z Index" ]
 
 [node name="p2 Panel" type="Panel" parent="Play Game" index="2"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -846,7 +1003,27 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="human" type="Button" parent="Play Game/p2 Panel" index="1"]
+[node name="h_panel" type="Panel" parent="Play Game/p2 Panel" index="1"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 18.0
+margin_top = 5.0
+margin_right = 80.0
+margin_bottom = 21.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/panel = SubResource( 16 )
+_sections_unfolded = [ "Rect", "custom_styles" ]
+
+[node name="human" type="Button" parent="Play Game/p2 Panel" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -873,16 +1050,35 @@ flat = true
 align = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="ai" type="Button" parent="Play Game/p2 Panel" index="2"]
+[node name="a_panel" type="Panel" parent="Play Game/p2 Panel" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 18.0
-margin_top = 30.0
+margin_top = 29.0
+margin_right = 80.0
+margin_bottom = 45.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/panel = SubResource( 16 )
+_sections_unfolded = [ "Rect", "custom_styles" ]
+
+[node name="ai" type="Button" parent="Play Game/p2 Panel" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 18.0
+margin_top = 29.0
 margin_right = 96.0
-margin_bottom = 50.0
+margin_bottom = 49.0
 rect_scale = Vector2( 0.8, 0.8 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -896,15 +1092,15 @@ enabled_focus_mode = 0
 shortcut = null
 group = null
 text = "ai"
-flat = false
+flat = true
 align = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="Sprite2" type="Sprite" parent="Play Game/p2 Panel" index="3"]
+[node name="Sprite2" type="Sprite" parent="Play Game/p2 Panel" index="5"]
 
 position = Vector2( 127.302, 16.6563 )
 scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 4 )
+texture = ExtResource( 7 )
 region_enabled = true
 region_rect = Rect2( 200, 0, 200, 314 )
 _sections_unfolded = [ "Region", "Transform", "Z Index" ]
@@ -963,15 +1159,64 @@ flat = true
 align = 1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="Game" parent="." index="5" instance=ExtResource( 5 )]
+[node name="Game" parent="." index="5" instance=ExtResource( 8 )]
 
 position = Vector2( 768, 0 )
 _sections_unfolded = [ "Pause", "Transform" ]
 
-[node name="Pause Panel" type="Panel" parent="." index="6"]
+[node name="Pause Info Panel" type="Panel" parent="." index="6"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 938.0
+margin_top = -40.0
+margin_right = 978.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/panel = SubResource( 17 )
+_sections_unfolded = [ "Rect" ]
+
+[node name="Label2" type="Label" parent="Pause Info Panel" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -10.0
+margin_top = 6.0
+margin_right = 140.0
+margin_bottom = 78.0
+rect_scale = Vector2( 0.4, 0.4 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 9 )
+text = "press
+
+[ESC]
+
+to pause"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="Pause Panel" type="Panel" parent="." index="7"]
 
 pause_mode = 2
 editor/display_folded = true
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1094,27 +1339,27 @@ _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
 [connection signal="pressed" from="Play Game/p1 Panel/human" to="Game" method="set_p1_ai" binds= [ false ]]
 
-[connection signal="pressed" from="Play Game/p1 Panel/human" to="Play Game/p1 Panel/human" method="set_flat" binds= [ false ]]
+[connection signal="pressed" from="Play Game/p1 Panel/human" to="Play Game/p1 Panel/a_panel" method="hide"]
 
-[connection signal="pressed" from="Play Game/p1 Panel/human" to="Play Game/p1 Panel/ai" method="set_flat" binds= [ true ]]
+[connection signal="pressed" from="Play Game/p1 Panel/human" to="Play Game/p1 Panel/h_panel" method="show"]
 
 [connection signal="pressed" from="Play Game/p1 Panel/ai" to="Game" method="set_p1_ai" binds= [ true ]]
 
-[connection signal="pressed" from="Play Game/p1 Panel/ai" to="Play Game/p1 Panel/human" method="set_flat" binds= [ true ]]
+[connection signal="pressed" from="Play Game/p1 Panel/ai" to="Play Game/p1 Panel/a_panel" method="show"]
 
-[connection signal="pressed" from="Play Game/p1 Panel/ai" to="Play Game/p1 Panel/ai" method="set_flat" binds= [ false ]]
+[connection signal="pressed" from="Play Game/p1 Panel/ai" to="Play Game/p1 Panel/h_panel" method="hide"]
 
 [connection signal="pressed" from="Play Game/p2 Panel/human" to="Game" method="set_p2_ai" binds= [ false ]]
 
-[connection signal="pressed" from="Play Game/p2 Panel/human" to="Play Game/p2 Panel/human" method="set_flat" binds= [ false ]]
+[connection signal="pressed" from="Play Game/p2 Panel/human" to="Play Game/p2 Panel/a_panel" method="hide"]
 
-[connection signal="pressed" from="Play Game/p2 Panel/human" to="Play Game/p2 Panel/ai" method="set_flat" binds= [ true ]]
+[connection signal="pressed" from="Play Game/p2 Panel/human" to="Play Game/p2 Panel/h_panel" method="show"]
 
 [connection signal="pressed" from="Play Game/p2 Panel/ai" to="Game" method="set_p2_ai" binds= [ true ]]
 
-[connection signal="pressed" from="Play Game/p2 Panel/ai" to="Play Game/p2 Panel/human" method="set_flat" binds= [ true ]]
+[connection signal="pressed" from="Play Game/p2 Panel/ai" to="Play Game/p2 Panel/a_panel" method="show"]
 
-[connection signal="pressed" from="Play Game/p2 Panel/ai" to="Play Game/p2 Panel/ai" method="set_flat" binds= [ false ]]
+[connection signal="pressed" from="Play Game/p2 Panel/ai" to="Play Game/p2 Panel/h_panel" method="hide"]
 
 [connection signal="pressed" from="Play Game/back Button" to="Audio/menu button" method="play"]
 
