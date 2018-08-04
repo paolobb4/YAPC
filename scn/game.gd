@@ -25,12 +25,14 @@ func pause(sound=true):
 	get_tree().paused = true
 	if sound:
 		$Audio/pause_in.play()
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 
 func unpause(sound=true):
 	get_tree().paused = false
 	if sound:
 		$Audio/pause_out.play()
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 
 func set_p1_ai(ai):
@@ -48,3 +50,5 @@ func reset():
 
 	$score_left.text = '0'
 	$score_right.text = '0'
+
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
