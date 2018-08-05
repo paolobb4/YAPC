@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://scn/menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/sfx_menu_move1.wav" type="AudioStream" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/ui_grabber.png" type="Texture" id=6]
 [ext_resource path="res://assets/keys_400px.png" type="Texture" id=7]
 [ext_resource path="res://scn/Game.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/key_esc.png" type="Texture" id=9]
 
 [sub_resource type="Animation" id=1]
 
@@ -1169,7 +1170,6 @@ position = Vector2( 768, 0 )
 
 [node name="Pause Info Panel" type="Panel" parent="." index="6"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1206,7 +1206,7 @@ size_flags_vertical = 4
 custom_fonts/font = SubResource( 10 )
 text = "press
 
-[ESC]
+
 
 to pause"
 align = 1
@@ -1215,9 +1215,17 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
+[node name="Sprite" type="Sprite" parent="Pause Info Panel" index="1"]
+
+position = Vector2( 20.3342, 20.7861 )
+scale = Vector2( 0.07, 0.07 )
+texture = ExtResource( 9 )
+_sections_unfolded = [ "Transform" ]
+
 [node name="Pause Panel" type="Panel" parent="." index="7"]
 
 pause_mode = 2
+editor/display_folded = true
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
