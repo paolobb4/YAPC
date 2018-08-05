@@ -1,6 +1,21 @@
 extends Node2D
 
 
+func _ready():
+	get_tree().paused = true
+
+
+func _process(delta):
+	if self.position.x == -768:	# i.e. when playing
+		if Input.is_action_just_pressed('ui_cancel'):
+			if $Game.paused:
+				$Game.unpause()
+				$'Pause Panel'.hide()
+			else:
+				$Game.pause()
+				$'Pause Panel'.show()
+
+
 func _on_quit_Button_pressed():
 	get_tree().quit()
 

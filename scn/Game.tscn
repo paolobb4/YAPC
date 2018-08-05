@@ -43,9 +43,10 @@ use_filter = false
 font_data = ExtResource( 4 )
 _sections_unfolded = [ "Font", "Font/fallback", "Settings" ]
 
-[node name="Game" type="Node2D" index="0"]
+[node name="Game" type="Node2D"]
 
 script = ExtResource( 1 )
+_sections_unfolded = [ "Pause", "Transform" ]
 __meta__ = {
 "_edit_group_": true
 }
@@ -85,7 +86,6 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_styles/panel = SubResource( 1 )
-_sections_unfolded = [ "Rect", "custom_styles" ]
 
 [node name="score_left" type="Label" parent="." index="2"]
 
@@ -111,7 +111,7 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_fonts" ]
+_sections_unfolded = [ "custom_fonts" ]
 
 [node name="score_right" type="Label" parent="." index="3"]
 
@@ -137,18 +137,16 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_fonts" ]
+_sections_unfolded = [ "custom_fonts" ]
 
 [node name="Ball" parent="." index="4" instance=ExtResource( 5 )]
 
 position = Vector2( 192, 108 )
-_sections_unfolded = [ "Transform" ]
 speed = 180
 
 [node name="Player_1" parent="." index="5" instance=ExtResource( 6 )]
 
 position = Vector2( 43, 109 )
-_sections_unfolded = [ "Transform" ]
 ai_miss_chance = 40
 ai_hold = 0.35
 

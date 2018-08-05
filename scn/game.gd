@@ -1,16 +1,11 @@
 extends Node
 
 
-signal paused
+var paused
 
 
 func _ready():
 	pause(false)
-
-
-func _process(delta):
-	if Input.is_action_just_pressed('ui_cancel'):
-		pause()
 
 
 func _on_point_scored(side):
@@ -21,15 +16,18 @@ func _on_point_scored(side):
 
 
 func pause(sound=true):
-	emit_signal('paused')
-	get_tree().paused = true
+	get_tree().paused = true # necessary for physics to work
+	pause_mode = 1
+	paused = true
 	if sound:
 		$Audio/pause_in.play()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 
 func unpause(sound=true):
-	get_tree().paused = false
+	get_tree().paused = false # refer to pause()
+	pause_mode = 2
+	paused = false
 	if sound:
 		$Audio/pause_out.play()
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
