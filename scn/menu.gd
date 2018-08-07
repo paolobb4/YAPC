@@ -31,3 +31,26 @@ func _on_volume_changed(db):
 		AudioServer.set_bus_mute(0, false)
 		AudioServer.set_bus_volume_db(0, db)
 		$'Audio/menu button'.play()
+
+func _on_decrease_Button_pressed():
+	# cn = cn + max - max
+	# cn = max - max + cn
+	# cn = max - (max - cn)
+	# => cn - 1 = max - (max - (cn - 1))
+	#    cn - 1 = max - (max - cn + 1)
+	# => max - (max - cn + 1) % max    will loop back to max skipping 0.
+
+	var points = $"Play Game/points/value"
+	points.text = str(99 - ((99 - int(points.text) + 1) % 99))
+	$Game.points = int(points.text)
+
+
+func _on_increase_Button_pressed():
+	var points = $"Play Game/points/value"
+	points.text = str((int(points.text) + 1) % 99)
+	$Game.points = int(points.text)
+
+
+func _on_Game_win(pl):
+	$"Win Panel/number".text = pl
+	$"Win Panel".show()

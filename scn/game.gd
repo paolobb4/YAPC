@@ -1,7 +1,9 @@
 extends Node
 
 
+signal win(pl) 
 var paused
+var points = 3
 
 
 func _ready():
@@ -11,8 +13,14 @@ func _ready():
 func _on_point_scored(side):
 	if side == "left":
 		$score_left.text = str(int($score_left.text) + 1)
+		if int($score_left.text) == points:
+			emit_signal("win", "1")
+			pause(false)
 	if side == "right":
 		$score_right.text = str(int($score_right.text) + 1)
+		if int($score_right.text) == points:
+			emit_signal("win", "2")
+			pause(false)
 
 
 func pause(sound=true):
