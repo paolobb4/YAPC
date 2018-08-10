@@ -21,7 +21,7 @@ func _ready():
 		$Sprite.region_rect.position.x = size.x
 
 
-func _process(delta):
+func _physics_process(delta):
 	if ai:
 		ai_process(delta)
 	else:

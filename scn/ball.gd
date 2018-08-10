@@ -12,7 +12,7 @@ func _ready():
 	screensize = get_viewport_rect().size
 
 
-func _process(delta):
+func _physics_process(delta):
 	position += direction * speed * delta
 	if position.x < 0:
 		position = screensize / 2

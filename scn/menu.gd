@@ -3,6 +3,7 @@ extends Node2D
 
 func _ready():
 	get_tree().paused = true
+	AudioServer.set_bus_volume_db(0, -20)
 
 
 func _process(delta):
@@ -53,4 +54,9 @@ func _on_increase_Button_pressed():
 
 func _on_Game_win(pl):
 	$"Win Panel/number".text = pl
+	if pl == '1':
+		$"Win Panel".get("custom_styles/panel").bg_color = Color("5ee4df")
+	else:
+		$"Win Panel".get("custom_styles/panel").bg_color = Color("ee8adc")
+
 	$"Win Panel".show()

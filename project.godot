@@ -36,7 +36,12 @@ p2_up=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"",
 p2_down=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777234,"unicode":0,"echo":false,"script":null)
  ]
 
+[physics]
+
+common/physics_fps=360
+
 [rendering]
 
+quality/intended_usage/framebuffer_allocation=0
 quality/filters/use_nearest_mipmap_filter=true
 environment/default_environment="res://default_env.tres"

@@ -3,7 +3,7 @@ extends Node
 
 signal win(pl) 
 var paused
-var points = 3
+var points = 5
 
 
 func _ready():
@@ -51,8 +51,12 @@ func set_p2_ai(ai):
 func reset():
 	$Ball.position = Vector2(192, 108)
 	$Ball.direction = Vector2(-1, 0)
-	$Player_1.position.y = 109
-	$Player_2.position.y = 108
+	if (randi()%2):
+		$Player_1.position.y = 108 - (randi()%2)
+		$Player_2.position.y = 109 + (randi()%2)
+	else:
+		$Player_1.position.y = 109 + (randi()%2)
+		$Player_2.position.y = 108 - (randi()%2)
 
 	$score_left.text = '0'
 	$score_right.text = '0'
