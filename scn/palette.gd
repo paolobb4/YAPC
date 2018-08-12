@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 export (int)		var speed = 150
 export (bool)		var ai = false
-export (int)		var ai_sight = 3
+export (float)		var ai_sight = 3
 export (int, 1, 100)	var ai_miss_chance = 15
 export (float)		var ai_hold = .3
 export (float)		var ai_recover = 1

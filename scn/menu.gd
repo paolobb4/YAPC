@@ -18,7 +18,7 @@ func _process(delta):
 
 
 func _on_quit_Button_pressed():
-	get_tree().quit()
+	$"Audio/menu button".connect("finished", get_tree(), "quit")
 
 
 func _on_full_screen_pressed():

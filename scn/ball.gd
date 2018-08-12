@@ -18,13 +18,11 @@ func _physics_process(delta):
 		position = screensize / 2
 		direction = Vector2(1, 0)
 		emit_signal("point_scored", "right")
-		$Audio/score.play()
 
 	if position.x > screensize.x:
 		position = screensize / 2
 		direction = Vector2(-1, 0)
 		emit_signal("point_scored", "left")
-		$Audio/score.play()
 
 	if position.y < 0 or position.y > screensize.y:
 		direction.y *= -1
@@ -38,7 +36,7 @@ func _on_Ball_body_entered(body):
 	if abs(abs_angle) > 1:
 		return
 
-	var bounce_angle = abs_angle * deg2rad(75)	# limit bouncing angle to 75°
+	var bounce_angle = abs_angle * deg2rad(65)	# limit bouncing angle to 75°
 
 	var side = 1 if body.position.x < screensize.x/2 else -1
 

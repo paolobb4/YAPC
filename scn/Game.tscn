@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scn/game.gd" type="Script" id=1]
 [ext_resource path="res://assets/sfx_sounds_pause2_in.wav" type="AudioStream" id=2]
 [ext_resource path="res://assets/sfx_sounds_pause2_out.wav" type="AudioStream" id=3]
-[ext_resource path="res://assets/8-BIT WONDER.TTF" type="DynamicFontData" id=4]
-[ext_resource path="res://scn/Ball.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scn/Palette.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/sfx_sound_neutral11.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/sfx_sounds_fanfare3.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/8-BIT WONDER.TTF" type="DynamicFontData" id=6]
+[ext_resource path="res://scn/Ball.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scn/Palette.tscn" type="PackedScene" id=8]
 
 [sub_resource type="StyleBoxFlat" id=1]
 
@@ -40,10 +42,10 @@ anti_aliasing_size = 1
 size = 36
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 4 )
+font_data = ExtResource( 6 )
 _sections_unfolded = [ "Font", "Font/fallback", "Settings" ]
 
-[node name="Game" type="Node2D" index="0"]
+[node name="Game" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause", "Transform" ]
@@ -65,6 +67,24 @@ bus = "Master"
 [node name="pause_out" type="AudioStreamPlayer" parent="Audio" index="1"]
 
 stream = ExtResource( 3 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="score" type="AudioStreamPlayer" parent="Audio" index="2"]
+
+stream = ExtResource( 4 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="win" type="AudioStreamPlayer" parent="Audio" index="3"]
+
+stream = ExtResource( 5 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -139,24 +159,24 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="Ball" parent="." index="4" instance=ExtResource( 5 )]
+[node name="Ball" parent="." index="4" instance=ExtResource( 7 )]
 
 position = Vector2( 192, 108 )
 speed = 180
 
-[node name="Player_1" parent="." index="5" instance=ExtResource( 6 )]
+[node name="Player_1" parent="." index="5" instance=ExtResource( 8 )]
 
 position = Vector2( 43, 109 )
-ai_sight = 2
+ai_sight = 2.25
 ai_miss_chance = 40
 ai_hold = 0.35
 
-[node name="Player_2" parent="." index="6" instance=ExtResource( 6 )]
+[node name="Player_2" parent="." index="6" instance=ExtResource( 8 )]
 
 position = Vector2( 332, 108 )
 _sections_unfolded = [ "Transform" ]
 ai = true
-ai_sight = 2
+ai_sight = 2.25
 ai_miss_chance = 30
 ai_hold = 0.4
 
