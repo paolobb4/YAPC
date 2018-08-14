@@ -1,9 +1,10 @@
 extends Node
 
 
-signal win(pl) 
+signal win(pl)
 var paused
 var points = 5
+var speed_factor = 0.08
 
 
 func _ready():
@@ -27,6 +28,10 @@ func _on_point_scored(side):
 			pause(false)
 		else:
 			$Audio/score.play()
+
+	$Ball.reset(side, speed_factor)
+	$Player_1.reset(speed_factor)
+	$Player_2.reset(speed_factor)
 
 
 func pause(sound=true):
@@ -55,6 +60,10 @@ func set_p2_ai(ai):
 
 
 func reset():
+	$Ball._ready()
+	$Player_1._ready()
+	$Player_2._ready()
+
 	$Ball.position = Vector2(192, 108)
 	$Ball.direction = Vector2(-1, 0)
 	if (randi()%2):

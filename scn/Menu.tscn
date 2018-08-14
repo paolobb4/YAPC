@@ -477,7 +477,7 @@ shadow_size = 0
 anti_aliasing = true
 anti_aliasing_size = 1
 
-[node name="Menu" type="Node2D" index="0"]
+[node name="Menu" type="Node2D"]
 
 pause_mode = 2
 script = ExtResource( 1 )
@@ -1342,7 +1342,6 @@ position = Vector2( 768, 0 )
 
 [node name="Pause Info Panel" type="Panel" parent="." index="6"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1521,7 +1520,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_styles/panel = SubResource( 20 )
-_sections_unfolded = [ "custom_styles" ]
+_sections_unfolded = [ "Visibility", "custom_styles" ]
 
 [node name="player" type="Label" parent="Win Panel" index="0"]
 
@@ -1659,13 +1658,13 @@ _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
 [connection signal="pressed" from="Main menu/options menu Button" to="AnimationPlayer" method="play" binds= [ "main2opts" ]]
 
-[connection signal="pressed" from="Main menu/quit Button" to="." method="_on_quit_Button_pressed"]
-
 [connection signal="pressed" from="Main menu/quit Button" to="Audio/menu button" method="play"]
 
-[connection signal="pressed" from="Options menu/fullscreen" to="." method="_on_full_screen_pressed"]
+[connection signal="pressed" from="Main menu/quit Button" to="." method="_on_quit_Button_pressed"]
 
 [connection signal="pressed" from="Options menu/fullscreen" to="Audio/menu button" method="play"]
+
+[connection signal="pressed" from="Options menu/fullscreen" to="." method="_on_full_screen_pressed"]
 
 [connection signal="value_changed" from="Options menu/volume" to="." method="_on_volume_changed"]
 
@@ -1675,43 +1674,43 @@ _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
 [connection signal="hide" from="Play Game/p1 Panel/h_panel" to="Audio/menu button" method="play"]
 
+[connection signal="pressed" from="Play Game/p1 Panel/human" to="Play Game/p1 Panel/a_panel" method="hide"]
+
 [connection signal="pressed" from="Play Game/p1 Panel/human" to="Game" method="set_p1_ai" binds= [ false ]]
 
 [connection signal="pressed" from="Play Game/p1 Panel/human" to="Play Game/p1 Panel/h_panel" method="show"]
 
-[connection signal="pressed" from="Play Game/p1 Panel/human" to="Play Game/p1 Panel/a_panel" method="hide"]
-
 [connection signal="hide" from="Play Game/p1 Panel/a_panel" to="Audio/menu button" method="play"]
+
+[connection signal="pressed" from="Play Game/p1 Panel/ai" to="Play Game/p1 Panel/a_panel" method="show"]
 
 [connection signal="pressed" from="Play Game/p1 Panel/ai" to="Game" method="set_p1_ai" binds= [ true ]]
 
 [connection signal="pressed" from="Play Game/p1 Panel/ai" to="Play Game/p1 Panel/h_panel" method="hide"]
 
-[connection signal="pressed" from="Play Game/p1 Panel/ai" to="Play Game/p1 Panel/a_panel" method="show"]
-
 [connection signal="hide" from="Play Game/p2 Panel/h_panel" to="Audio/menu button" method="play"]
+
+[connection signal="pressed" from="Play Game/p2 Panel/human" to="Play Game/p2 Panel/a_panel" method="hide"]
 
 [connection signal="pressed" from="Play Game/p2 Panel/human" to="Game" method="set_p2_ai" binds= [ false ]]
 
 [connection signal="pressed" from="Play Game/p2 Panel/human" to="Play Game/p2 Panel/h_panel" method="show"]
 
-[connection signal="pressed" from="Play Game/p2 Panel/human" to="Play Game/p2 Panel/a_panel" method="hide"]
-
 [connection signal="hide" from="Play Game/p2 Panel/a_panel" to="Audio/menu button" method="play"]
+
+[connection signal="pressed" from="Play Game/p2 Panel/ai" to="Play Game/p2 Panel/a_panel" method="show"]
 
 [connection signal="pressed" from="Play Game/p2 Panel/ai" to="Game" method="set_p2_ai" binds= [ true ]]
 
 [connection signal="pressed" from="Play Game/p2 Panel/ai" to="Play Game/p2 Panel/h_panel" method="hide"]
 
-[connection signal="pressed" from="Play Game/p2 Panel/ai" to="Play Game/p2 Panel/a_panel" method="show"]
+[connection signal="pressed" from="Play Game/points/decrease" to="Audio/menu button" method="play"]
 
 [connection signal="pressed" from="Play Game/points/decrease" to="." method="_on_decrease_Button_pressed"]
 
-[connection signal="pressed" from="Play Game/points/decrease" to="Audio/menu button" method="play"]
+[connection signal="pressed" from="Play Game/points/increase" to="Audio/menu button" method="play"]
 
 [connection signal="pressed" from="Play Game/points/increase" to="." method="_on_increase_Button_pressed"]
-
-[connection signal="pressed" from="Play Game/points/increase" to="Audio/menu button" method="play"]
 
 [connection signal="pressed" from="Play Game/back Button" to="Audio/menu button" method="play"]
 

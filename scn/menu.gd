@@ -7,7 +7,7 @@ func _ready():
 
 
 func _process(delta):
-	if self.position.x == -768:	# i.e. when playing
+	if self.position.x == -768 and not $"Win Panel".visible:	# i.e. when playing
 		if Input.is_action_just_pressed('ui_cancel'):
 			if $Game.paused:
 				$Game.unpause()
@@ -42,14 +42,23 @@ func _on_decrease_Button_pressed():
 	# => max - (max - cn + 1) % max    will loop back to max skipping 0.
 
 	var points = $"Play Game/points/value"
-	points.text = str(99 - ((99 - int(points.text) + 1) % 99))
-	$Game.points = int(points.text)
+	# points.text = str(99 - ((99 - int(points.text) + 1) % 99))
+	var score = int(points.text) - 1
+	if score == 0:
+		score = 99
+	points.text = str(score)
+	$Game.points = score
 
 
 func _on_increase_Button_pressed():
 	var points = $"Play Game/points/value"
-	points.text = str((int(points.text) + 1) % 99)
-	$Game.points = int(points.text)
+	# points.text = str((int(points.text) + 1) % 100)
+	# $Game.points = int(points.text)
+	var score = int(points.text) + 1
+	if score == 100:
+		score = 1
+	points.text = str(score)
+	$Game.points = score
 
 
 func _on_Game_win(pl):

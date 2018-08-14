@@ -1,11 +1,13 @@
 extends KinematicBody2D
 
-export (int)		var speed = 150
+export (int)		var init_speed = 150
 export (bool)		var ai = false
 export (float)		var ai_sight = 3
 export (int, 1, 100)	var ai_miss_chance = 15
 export (float)		var ai_hold = .3
 export (float)		var ai_recover = 1
+
+var speed
 
 var screensize
 var wait_time = 0	# used to create ai's handicap
@@ -16,9 +18,16 @@ var size = Vector2(8, 32)
 func _ready():
 	#TODO: change sprite if ai?
 	screensize = get_viewport_rect().size
+	speed = init_speed
 	randomize()
 	if self.position.x > screensize.x / 2:
 		$Sprite.region_rect.position.x = size.x
+
+
+func reset(speed_factor):
+	speed += init_speed * speed_factor
+	position.y = screensize.y / 2
+
 
 
 func _physics_process(delta):

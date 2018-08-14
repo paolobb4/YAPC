@@ -45,7 +45,7 @@ use_filter = false
 font_data = ExtResource( 6 )
 _sections_unfolded = [ "Font", "Font/fallback", "Settings" ]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause", "Transform" ]
@@ -162,11 +162,11 @@ _sections_unfolded = [ "custom_fonts" ]
 [node name="Ball" parent="." index="4" instance=ExtResource( 7 )]
 
 position = Vector2( 192, 108 )
-speed = 180
 
 [node name="Player_1" parent="." index="5" instance=ExtResource( 8 )]
 
 position = Vector2( 43, 109 )
+init_speed = 150
 ai_sight = 2.25
 ai_miss_chance = 40
 ai_hold = 0.35
@@ -175,10 +175,33 @@ ai_hold = 0.35
 
 position = Vector2( 332, 108 )
 _sections_unfolded = [ "Transform" ]
+init_speed = 150
 ai = true
 ai_sight = 2.25
 ai_miss_chance = 30
 ai_hold = 0.4
+
+[node name="Label" type="Label" parent="." index="7"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 14.0
+rect_scale = Vector2( 0.4, 0.4 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "asfdgfadsfdgasdfd"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
 
 [connection signal="point_scored" from="Ball" to="." method="_on_point_scored"]
 

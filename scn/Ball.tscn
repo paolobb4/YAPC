@@ -19,7 +19,7 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
-speed = 100
+init_speed = 180
 
 [node name="Audio" type="Node" parent="." index="0"]
 
