@@ -4,7 +4,7 @@ extends Node
 signal win(pl)
 var paused
 var points = 5
-var speed_factor = 0.08
+var speed_factor = 0.03
 
 
 func _ready():
@@ -32,6 +32,13 @@ func _on_point_scored(side):
 	$Ball.reset(side, speed_factor)
 	$Player_1.reset(speed_factor)
 	$Player_2.reset(speed_factor)
+
+	if (randi()%2):
+		$Player_1.position.y = 108 - (randi()%2)
+		$Player_2.position.y = 109 + (randi()%2)
+	else:
+		$Player_1.position.y = 109 + (randi()%2)
+		$Player_2.position.y = 108 - (randi()%2)
 
 
 func pause(sound=true):

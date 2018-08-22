@@ -59,6 +59,5 @@ func _on_Ball_body_entered(body):
 
 	$Audio/bounce.play()
 
-	speed *= 1.03
+	speed *= 1.02
 	$Audio/bounce.pitch_scale = 1 + speed / (20 * init_speed)
-	$"../Label".text = str($Audio/bounce.pitch_scale)
