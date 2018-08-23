@@ -10,9 +10,10 @@ config_version=3
 
 [application]
 
-config/name="pong"
+config/name="YAPC"
 run/main_scene="res://scn/Menu.tscn"
-config/icon="res://icon.png"
+run/disable_stdout=true
+config/icon="res://assets/ball.png"
 
 [display]
 
