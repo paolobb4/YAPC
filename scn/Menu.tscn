@@ -254,7 +254,7 @@ use_filter = false
 font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="StyleBoxFlat" id=21]
+[sub_resource type="StyleBoxFlat" id=11]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
@@ -282,7 +282,7 @@ shadow_size = 0
 anti_aliasing = true
 anti_aliasing_size = 1
 
-[sub_resource type="StyleBoxFlat" id=11]
+[sub_resource type="StyleBoxFlat" id=12]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
@@ -310,7 +310,7 @@ shadow_size = 0
 anti_aliasing = true
 anti_aliasing_size = 1
 
-[sub_resource type="DynamicFont" id=12]
+[sub_resource type="DynamicFont" id=13]
 
 size = 24
 use_mipmaps = false
@@ -318,7 +318,7 @@ use_filter = false
 font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="StyleBoxLine" id=13]
+[sub_resource type="StyleBoxLine" id=14]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
@@ -329,7 +329,7 @@ grow = 1.0
 thickness = 1
 vertical = false
 
-[sub_resource type="StyleBoxFlat" id=14]
+[sub_resource type="StyleBoxFlat" id=15]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
@@ -357,7 +357,7 @@ shadow_size = 0
 anti_aliasing = true
 anti_aliasing_size = 1
 
-[sub_resource type="StyleBoxFlat" id=15]
+[sub_resource type="StyleBoxFlat" id=16]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
@@ -385,7 +385,7 @@ shadow_size = 0
 anti_aliasing = true
 anti_aliasing_size = 1
 
-[sub_resource type="StyleBoxFlat" id=16]
+[sub_resource type="StyleBoxFlat" id=17]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
@@ -413,7 +413,7 @@ shadow_size = 0
 anti_aliasing = true
 anti_aliasing_size = 1
 
-[sub_resource type="DynamicFont" id=17]
+[sub_resource type="DynamicFont" id=18]
 
 size = 12
 use_mipmaps = false
@@ -421,7 +421,7 @@ use_filter = false
 font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="StyleBoxFlat" id=18]
+[sub_resource type="StyleBoxFlat" id=19]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
@@ -449,7 +449,7 @@ shadow_size = 0
 anti_aliasing = true
 anti_aliasing_size = 1
 
-[sub_resource type="StyleBoxFlat" id=19]
+[sub_resource type="StyleBoxFlat" id=20]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
@@ -477,7 +477,7 @@ shadow_size = 0
 anti_aliasing = true
 anti_aliasing_size = 1
 
-[sub_resource type="StyleBoxFlat" id=20]
+[sub_resource type="StyleBoxFlat" id=21]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
@@ -545,6 +545,7 @@ bus = "Master"
 [node name="Main menu" type="Panel" parent="." index="2"]
 
 pause_mode = 2
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -697,6 +698,7 @@ _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
 [node name="Credits Panel" type="Panel" parent="Main menu" index="5"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -711,7 +713,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/panel = SubResource( 21 )
+custom_styles/panel = SubResource( 11 )
 _sections_unfolded = [ "Rect", "custom_styles" ]
 
 [node name="text 1" type="Label" parent="Main menu/Credits Panel" index="0"]
@@ -803,7 +805,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/panel = SubResource( 11 )
+custom_styles/panel = SubResource( 12 )
 _sections_unfolded = [ "Pause", "Rect" ]
 __meta__ = {
 "_edit_group_": true
@@ -824,7 +826,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 13 )
 text = "options"
 align = 1
 percent_visible = 1.0
@@ -900,8 +902,8 @@ size_flags_horizontal = 1
 size_flags_vertical = 0
 custom_icons/grabber_highlight = ExtResource( 6 )
 custom_icons/grabber = ExtResource( 6 )
-custom_styles/slider = SubResource( 13 )
-custom_styles/grabber_disabled = SubResource( 13 )
+custom_styles/slider = SubResource( 14 )
+custom_styles/grabber_disabled = SubResource( 14 )
 min_value = -50.0
 max_value = 0.0
 step = 10.0
@@ -968,7 +970,6 @@ _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts", "custom_styles" 
 [node name="Play Game" type="Panel" parent="." index="4"]
 
 pause_mode = 2
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -983,7 +984,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/panel = SubResource( 14 )
+custom_styles/panel = SubResource( 15 )
 _sections_unfolded = [ "Pause", "Rect", "custom_styles" ]
 __meta__ = {
 "_edit_group_": true
@@ -1004,7 +1005,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 13 )
 text = "Play Game"
 align = 1
 percent_visible = 1.0
@@ -1012,16 +1013,34 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="p1 Panel" type="Panel" parent="Play Game" index="1"]
+[node name="keys p2" type="Sprite" parent="Play Game" index="1"]
+
+position = Vector2( 28.6229, 73.9298 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 200, 314 )
+_sections_unfolded = [ "Region", "Transform", "Z Index" ]
+
+[node name="keys p1" type="Sprite" parent="Play Game" index="2"]
+
+position = Vector2( 290.302, 91.6563 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 200, 0, 200, 314 )
+_sections_unfolded = [ "Region", "Transform", "Z Index" ]
+
+[node name="p1 Panel" type="Panel" parent="Play Game" index="3"]
 
 editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 53.0
+margin_left = 163.0
 margin_top = 75.0
-margin_right = 153.0
+margin_right = 263.0
 margin_bottom = 125.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -1029,7 +1048,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/panel = SubResource( 15 )
+custom_styles/panel = SubResource( 16 )
 _sections_unfolded = [ "Rect" ]
 __meta__ = {
 "_edit_group_": true
@@ -1074,7 +1093,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/panel = SubResource( 16 )
+custom_styles/panel = SubResource( 17 )
 _sections_unfolded = [ "Rect", "custom_styles" ]
 
 [node name="human" type="Button" parent="Play Game/p1 Panel" index="2"]
@@ -1121,7 +1140,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/panel = SubResource( 16 )
+custom_styles/panel = SubResource( 17 )
 _sections_unfolded = [ "Rect", "custom_styles" ]
 
 [node name="ai" type="Button" parent="Play Game/p1 Panel" index="4"]
@@ -1151,25 +1170,16 @@ flat = true
 align = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="Sprite" type="Sprite" parent="Play Game/p1 Panel" index="5"]
-
-position = Vector2( -24.3771, -1.07019 )
-scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 7 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 200, 314 )
-_sections_unfolded = [ "Region", "Transform", "Z Index" ]
-
-[node name="p2 Panel" type="Panel" parent="Play Game" index="2"]
+[node name="p2 Panel" type="Panel" parent="Play Game" index="4"]
 
 editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 163.0
+margin_left = 53.0
 margin_top = 75.0
-margin_right = 263.0
+margin_right = 153.0
 margin_bottom = 125.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -1177,7 +1187,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/panel = SubResource( 15 )
+custom_styles/panel = SubResource( 16 )
 _sections_unfolded = [ "Rect" ]
 __meta__ = {
 "_edit_group_": true
@@ -1223,7 +1233,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/panel = SubResource( 16 )
+custom_styles/panel = SubResource( 17 )
 _sections_unfolded = [ "Rect", "custom_styles" ]
 
 [node name="human" type="Button" parent="Play Game/p2 Panel" index="2"]
@@ -1269,7 +1279,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/panel = SubResource( 16 )
+custom_styles/panel = SubResource( 17 )
 _sections_unfolded = [ "Rect", "custom_styles" ]
 
 [node name="ai" type="Button" parent="Play Game/p2 Panel" index="4"]
@@ -1299,17 +1309,9 @@ flat = true
 align = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="Sprite2" type="Sprite" parent="Play Game/p2 Panel" index="5"]
+[node name="points" type="Panel" parent="Play Game" index="5"]
 
-position = Vector2( 127.302, 16.6563 )
-scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 7 )
-region_enabled = true
-region_rect = Rect2( 200, 0, 200, 314 )
-_sections_unfolded = [ "Region", "Transform", "Z Index" ]
-
-[node name="points" type="Panel" parent="Play Game" index="3"]
-
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1324,7 +1326,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/panel = SubResource( 16 )
+custom_styles/panel = SubResource( 17 )
 _sections_unfolded = [ "custom_styles" ]
 
 [node name="Label" type="Label" parent="Play Game/points" index="0"]
@@ -1344,7 +1346,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 18 )
 text = "points"
 percent_visible = 1.0
 lines_skipped = 0
@@ -1367,7 +1369,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 18 )
 text = "5"
 align = 1
 valign = 1
@@ -1424,7 +1426,7 @@ texture_normal = ExtResource( 10 )
 texture_pressed = ExtResource( 11 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
-[node name="back Button" type="Button" parent="Play Game" index="4"]
+[node name="back Button" type="Button" parent="Play Game" index="6"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -1451,7 +1453,7 @@ flat = true
 align = 1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="play Button" type="Button" parent="Play Game" index="5"]
+[node name="play Button" type="Button" parent="Play Game" index="7"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -1499,7 +1501,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/panel = SubResource( 18 )
+custom_styles/panel = SubResource( 19 )
 _sections_unfolded = [ "Rect" ]
 
 [node name="Label2" type="Label" parent="Pause Info Panel" index="0"]
@@ -1558,7 +1560,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/panel = SubResource( 19 )
+custom_styles/panel = SubResource( 20 )
 _sections_unfolded = [ "Pause", "Rect", "Visibility" ]
 __meta__ = {
 "_edit_group_": true
@@ -1663,7 +1665,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/panel = SubResource( 20 )
+custom_styles/panel = SubResource( 21 )
 _sections_unfolded = [ "Visibility", "custom_styles" ]
 
 [node name="player" type="Label" parent="Win Panel" index="0"]
@@ -1683,7 +1685,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 18 )
 text = "Player"
 percent_visible = 1.0
 lines_skipped = 0
@@ -1707,7 +1709,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 18 )
 text = "1"
 percent_visible = 1.0
 lines_skipped = 0
@@ -1731,7 +1733,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 18 )
 text = "wins"
 percent_visible = 1.0
 lines_skipped = 0
@@ -1802,13 +1804,13 @@ _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
 [connection signal="pressed" from="Main menu/options menu Button" to="AnimationPlayer" method="play" binds= [ "main2opts" ]]
 
-[connection signal="pressed" from="Main menu/quit Button" to="." method="_on_quit_Button_pressed"]
-
 [connection signal="pressed" from="Main menu/quit Button" to="Audio/menu button" method="play"]
 
-[connection signal="pressed" from="Options menu/fullscreen" to="." method="_on_full_screen_pressed"]
+[connection signal="pressed" from="Main menu/quit Button" to="." method="_on_quit_Button_pressed"]
 
 [connection signal="pressed" from="Options menu/fullscreen" to="Audio/menu button" method="play"]
+
+[connection signal="pressed" from="Options menu/fullscreen" to="." method="_on_full_screen_pressed"]
 
 [connection signal="value_changed" from="Options menu/volume" to="." method="_on_volume_changed"]
 
@@ -1818,17 +1820,17 @@ _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
 [connection signal="hide" from="Play Game/p1 Panel/h_panel" to="Audio/menu button" method="play"]
 
-[connection signal="pressed" from="Play Game/p1 Panel/human" to="Game" method="set_p1_ai" binds= [ false ]]
-
 [connection signal="pressed" from="Play Game/p1 Panel/human" to="Play Game/p1 Panel/h_panel" method="show"]
+
+[connection signal="pressed" from="Play Game/p1 Panel/human" to="Game" method="set_p1_ai" binds= [ false ]]
 
 [connection signal="pressed" from="Play Game/p1 Panel/human" to="Play Game/p1 Panel/a_panel" method="hide"]
 
 [connection signal="hide" from="Play Game/p1 Panel/a_panel" to="Audio/menu button" method="play"]
 
-[connection signal="pressed" from="Play Game/p1 Panel/ai" to="Game" method="set_p1_ai" binds= [ true ]]
-
 [connection signal="pressed" from="Play Game/p1 Panel/ai" to="Play Game/p1 Panel/h_panel" method="hide"]
+
+[connection signal="pressed" from="Play Game/p1 Panel/ai" to="Game" method="set_p1_ai" binds= [ true ]]
 
 [connection signal="pressed" from="Play Game/p1 Panel/ai" to="Play Game/p1 Panel/a_panel" method="show"]
 
@@ -1836,25 +1838,25 @@ _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
 [connection signal="pressed" from="Play Game/p2 Panel/human" to="Game" method="set_p2_ai" binds= [ false ]]
 
-[connection signal="pressed" from="Play Game/p2 Panel/human" to="Play Game/p2 Panel/h_panel" method="show"]
-
 [connection signal="pressed" from="Play Game/p2 Panel/human" to="Play Game/p2 Panel/a_panel" method="hide"]
+
+[connection signal="pressed" from="Play Game/p2 Panel/human" to="Play Game/p2 Panel/h_panel" method="show"]
 
 [connection signal="hide" from="Play Game/p2 Panel/a_panel" to="Audio/menu button" method="play"]
 
 [connection signal="pressed" from="Play Game/p2 Panel/ai" to="Game" method="set_p2_ai" binds= [ true ]]
 
-[connection signal="pressed" from="Play Game/p2 Panel/ai" to="Play Game/p2 Panel/h_panel" method="hide"]
-
 [connection signal="pressed" from="Play Game/p2 Panel/ai" to="Play Game/p2 Panel/a_panel" method="show"]
 
-[connection signal="pressed" from="Play Game/points/decrease" to="." method="_on_decrease_Button_pressed"]
+[connection signal="pressed" from="Play Game/p2 Panel/ai" to="Play Game/p2 Panel/h_panel" method="hide"]
 
 [connection signal="pressed" from="Play Game/points/decrease" to="Audio/menu button" method="play"]
 
-[connection signal="pressed" from="Play Game/points/increase" to="." method="_on_increase_Button_pressed"]
+[connection signal="pressed" from="Play Game/points/decrease" to="." method="_on_decrease_Button_pressed"]
 
 [connection signal="pressed" from="Play Game/points/increase" to="Audio/menu button" method="play"]
+
+[connection signal="pressed" from="Play Game/points/increase" to="." method="_on_increase_Button_pressed"]
 
 [connection signal="pressed" from="Play Game/back Button" to="Audio/menu button" method="play"]
 

@@ -63,7 +63,7 @@ func _on_increase_Button_pressed():
 
 func _on_Game_win(pl):
 	$"Win Panel/number".text = pl
-	if pl == '1':
+	if pl == '2':
 		$"Win Panel".get("custom_styles/panel").bg_color = Color("5ee4df")
 	else:
 		$"Win Panel".get("custom_styles/panel").bg_color = Color("ee8adc")

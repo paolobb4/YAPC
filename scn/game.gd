@@ -16,7 +16,7 @@ func _on_point_scored(side):
 		$score_left.text = str(int($score_left.text) + 1)
 		if int($score_left.text) == points:
 			$Audio/win.play()
-			emit_signal("win", "1")
+			emit_signal("win", "2")
 			pause(false)
 		else:
 			$Audio/score.play()
@@ -24,7 +24,7 @@ func _on_point_scored(side):
 		$score_right.text = str(int($score_right.text) + 1)
 		if int($score_right.text) == points:
 			$Audio/win.play()
-			emit_signal("win", "2")
+			emit_signal("win", "1")
 			pause(false)
 		else:
 			$Audio/score.play()
