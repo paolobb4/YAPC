@@ -18,5 +18,5 @@ Paolo Barresi - https://github.com/paolobb4
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-## Aknolegements
+## Acknowledgments
 I'd like to thank my brothers Emanuele, Francesco and Daniele who tested my game and during the late stages helped me make it *actually* fun.
